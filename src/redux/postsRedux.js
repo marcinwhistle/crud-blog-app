@@ -1,7 +1,10 @@
 //selectors
 
+export const getAllPosts = ({ posts }) => {
+  return posts;
+};
 // actions
-const createActionName = (actionName) => `app/posts/${actionName}`;
+//const createActionName = (actionName) => `app/posts/${actionName}`;
 
 // action creators
 const postsReducer = (statePart = [], action) => {

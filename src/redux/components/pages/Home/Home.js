@@ -1,5 +1,12 @@
+import Posts from '../../features/Posts/Posts';
+
 const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <div>
+      <h1>AllPosts</h1>
+      <Posts />
+    </div>
+  );
 };
 
 export default Home;
