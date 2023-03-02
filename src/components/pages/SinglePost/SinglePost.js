@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { removePost } from '../../../redux/postsRedux';
 import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
+import { dateToStr } from '../../../utils/dateToStr';
 
 const SinglePost = () => {
   const dispatch = useDispatch();
@@ -33,9 +34,12 @@ const SinglePost = () => {
                   <strong>Author: </strong>
                   {postData.author} <br />
                   <strong>Published: </strong>
-                  {postData.publishedDate} <br />
+                  {dateToStr(postData.publishedDate)} <br />
                 </Card.Text>
                 <Card.Text>{postData.shortDescription}</Card.Text>
+                <Card.Text
+                  dangerouslySetInnerHTML={{ __html: postData.content }}
+                />
               </Card.Body>
             </Card>
           </Col>

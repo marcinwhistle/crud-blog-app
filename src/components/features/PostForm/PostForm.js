@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const PostForm = ({ action, actionText, ...props }) => {
   const [title, setTitle] = useState(props.title || '');
@@ -18,7 +22,7 @@ const PostForm = ({ action, actionText, ...props }) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        <Form.Group className='mb-3 w-25' controlId='formBasicEmail'>
+        <Form.Group className='mb-3 w-50' controlId='formBasicEmail'>
           <Form.Label>Title</Form.Label>
           <Form.Control
             type='text'
@@ -28,7 +32,7 @@ const PostForm = ({ action, actionText, ...props }) => {
           />
           <Form.Text className='text-muted'></Form.Text>
         </Form.Group>
-        <Form.Group className='mb-3 w-25' controlId='formBasicEmail'>
+        <Form.Group className='mb-3 w-50' controlId='formBasicEmail'>
           <Form.Label>Author</Form.Label>
           <Form.Control
             type='text'
@@ -40,13 +44,12 @@ const PostForm = ({ action, actionText, ...props }) => {
         </Form.Group>
         <Form.Group className='mb-3 w-25' controlId='formBasicEmail'>
           <Form.Label>Published</Form.Label>
-          <Form.Control
-            type='text'
-            placeholder='Enter Date'
-            value={publishedDate}
-            onChange={(e) => setPublishedDate(e.target.value)}
-          />
           <Form.Text className='text-muted'></Form.Text>
+          <DatePicker
+            value={publishedDate}
+            selected={publishedDate}
+            onChange={(date) => setPublishedDate(date)}
+          />
         </Form.Group>
         <Form.Group className={'mb-3 w-50'}>
           <Form.Label>Short description</Form.Label>
@@ -60,13 +63,7 @@ const PostForm = ({ action, actionText, ...props }) => {
         </Form.Group>
         <Form.Group className={'mb-3 w-50'}>
           <Form.Label>Main Content</Form.Label>
-          <Form.Control
-            as='textarea'
-            rows={15}
-            placeholder='Leave a comment here'
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
+          <ReactQuill theme='snow' value={content} onChange={setContent} />
         </Form.Group>
         <Button variant='primary' type='submit'>
           {actionText}

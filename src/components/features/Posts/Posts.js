@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Col, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { dateToStr } from '../../../utils/dateToStr';
 
 const Posts = () => {
   const posts = useSelector((state) => getAllPosts(state));
@@ -21,7 +22,7 @@ const Posts = () => {
               </Card.Text>
               <Card.Text>
                 <strong>Published: </strong>
-                {post.publishedDate}
+                {dateToStr(post.publishedDate)}
               </Card.Text>
               <Card.Text>{post.shortDescription}</Card.Text>
               <Button variant='primary' as={NavLink} to={'/post/' + post.id}>
