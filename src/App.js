@@ -18,7 +18,7 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/post/add' element={<AddPost />} />
         <Route path='*' element={<NotFound />} />
-        <Route path='/post/:postId' element={<SinglePost />} />
+        <Route path='/post/:id' element={<SinglePost />} />
         <Route path='/post/edit/:id' element={<EditPost />} />
       </Routes>
       <Footer />

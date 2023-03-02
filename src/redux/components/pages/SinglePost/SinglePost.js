@@ -13,12 +13,12 @@ const SinglePost = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { postId } = useParams();
-  const postData = useSelector((state) => getPostById(state, postId));
+  const { id } = useParams();
+  const postData = useSelector((state) => getPostById(state, id));
   if (!postData) return <Navigate to='/' />;
 
   const handleDelete = () => {
-    dispatch(removePost(postId));
+    dispatch(removePost(id));
   };
 
   return (
@@ -40,11 +40,7 @@ const SinglePost = () => {
             </Card>
           </Col>
           <Col>
-            <Button
-              variant='outline-info'
-              as={NavLink}
-              to={'/post/edit/' + postId}
-            >
+            <Button variant='outline-info' as={NavLink} to={'/post/edit/' + id}>
               Edit
             </Button>
             <Button variant='outline-danger' onClick={handleShow}>
