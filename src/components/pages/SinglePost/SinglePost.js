@@ -2,9 +2,9 @@ import { useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { Button, Card, Col, Row, Container } from 'react-bootstrap';
-import { getPostById } from '../../../postsRedux';
+import { getPostById } from '../../../redux/postsRedux';
 import { useDispatch } from 'react-redux';
-import { removePost } from '../../../postsRedux';
+import { removePost } from '../../../redux/postsRedux';
 import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
 

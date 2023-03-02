@@ -1,11 +1,11 @@
-import About from './redux/components/pages/about/About';
-import Home from './redux/components/pages/Home/Home';
-import AddPost from './redux/components/pages/AddPost/AddPost';
-import NotFound from './redux/components/pages/NotFound/NotFound';
-import SinglePost from './redux/components/pages/SinglePost/SinglePost';
-import EditPost from './redux/components/pages/EditPost/EditPost';
-import Footer from './redux/components/views/Footer/Footer';
-import Header from './redux/components/views/Header/Header';
+import About from './components/pages/about/About';
+import Home from './components/pages/Home/Home';
+import AddPost from './components/pages/AddPost/AddPost';
+import NotFound from './components/pages/NotFound/NotFound';
+import SinglePost from './components/pages/SinglePost/SinglePost';
+import EditPost from './components/pages/EditPost/EditPost';
+import Footer from './components/views/Footer/Footer';
+import Header from './components/views/Header/Header';
 import { Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 

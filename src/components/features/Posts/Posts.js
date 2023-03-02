@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getAllPosts } from '../../../postsRedux';
+import { getAllPosts } from '../../../redux/postsRedux';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Col, Row } from 'react-bootstrap';
