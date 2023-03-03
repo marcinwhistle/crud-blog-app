@@ -5,8 +5,11 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useForm } from 'react-hook-form';
+import { allCategories } from '../../../redux/categoriesRedux';
+import { useSelector } from 'react-redux';
 
 const PostForm = ({ action, actionText, ...props }) => {
+  const categories = useSelector(allCategories);
   const [title, setTitle] = useState(props.title || '');
   const [author, setAuthor] = useState(props.author || '');
   const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
@@ -14,6 +17,7 @@ const PostForm = ({ action, actionText, ...props }) => {
     props.shortDescription || ''
   );
   const [content, setContent] = useState(props.content || '');
+  const [category, setCategory] = useState(props.category || '');
   const [contentError, setContentError] = useState(false);
   const [dateError, setDateError] = useState(false);
   const {
@@ -26,7 +30,14 @@ const PostForm = ({ action, actionText, ...props }) => {
     setContentError(!content);
     setDateError(!publishedDate);
     if (content && publishedDate) {
-      action({ title, author, publishedDate, shortDescription, content });
+      action({
+        title,
+        author,
+        publishedDate,
+        category,
+        shortDescription,
+        content,
+      });
     }
   };
 
@@ -77,7 +88,21 @@ const PostForm = ({ action, actionText, ...props }) => {
             </small>
           )}
         </Form.Group>
-        <Form.Group className={'mb-3 w-50'}>
+        <Form.Group>
+          <Form.Label>Category</Form.Label>
+          <Form.Select
+            className='mb-3 w-50'
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option>Select category</option>
+            {categories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+          </Form.Select>
+        </Form.Group>
+        <Form.Group className='mb-3 w-50'>
           <Form.Label>Short description</Form.Label>
           <Form.Control
             {...register('shortDescription', { required: true, minLength: 20 })}

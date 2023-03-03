@@ -6,6 +6,8 @@ import SinglePost from './components/pages/SinglePost/SinglePost';
 import EditPost from './components/pages/EditPost/EditPost';
 import Footer from './components/views/Footer/Footer';
 import Header from './components/views/Header/Header';
+import Category from './components/pages/Category/Category';
+import CategoryPage from './components/pages/CategoryPage/CategoryPage';
 import { Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
@@ -15,6 +17,8 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/category' element={<Category />} />
+        <Route path='/category/:category' element={<CategoryPage />} />
         <Route path='/about' element={<About />} />
         <Route path='/post/add' element={<AddPost />} />
         <Route path='*' element={<NotFound />} />

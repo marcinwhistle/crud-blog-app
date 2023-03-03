@@ -24,6 +24,10 @@ const Posts = () => {
                 <strong>Published: </strong>
                 {dateToStr(post.publishedDate)}
               </Card.Text>
+              <Card.Text>
+                <strong>Category: </strong>
+                {post.category}
+              </Card.Text>
               <Card.Text>{post.shortDescription}</Card.Text>
               <Button variant='primary' as={NavLink} to={'/post/' + post.id}>
                 Read more
